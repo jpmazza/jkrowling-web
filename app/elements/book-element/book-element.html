@@ -1,0 +1,48 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/image-mask/image-mask.html">
+
+<dom-module id="book-element">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+    </style>
+
+    <h1>HOLA ACA ESTOY!</h1>
+    <h1>HOLA ACA ESTOY!</h1>
+    <h1>HOLA ACA ESTOY!</h1>
+    <h1>HOLA ACA ESTOY!</h1>
+
+    <image-mask shape="circle" size="250" src="../../images/book.jpg" href="#" title="J. K. Rowling Picture" desc="J. K. Rowling Profile Picture"></image-mask>
+
+  </template>
+
+  <script>
+    (function() {
+
+      Polymer({
+        is: 'book-element',
+
+        properties: {
+          imageUrl: {
+            type: String,
+          },
+          // title: {
+          //   type: String,
+          // }
+          // description: {
+          //   type: String
+          // },
+          // buttonText: {
+          //   type: String
+          // },          
+          // buttonLink: {
+          //   type: String
+          // }
+        }
+      });
+    })();
+  </script>
+</dom-module>
