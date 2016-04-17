@@ -11,6 +11,7 @@
     <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
     <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
     <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="elements/image-mask/image-mask.html">
     <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
 
     <link rel="import" href="bower_components/paper-styles/color.html">
@@ -59,13 +60,17 @@
       <h2>J. K. Rowling</h2>
       <p>"Si quieres ver cómo un hombre es, mira cómo trata a sus inferiores, no a sus iguales"</p>
     </div>
-    </paper-toolbar>
+  </paper-toolbar>
 
-    <div class="content">
-      <sample-content size="100"></sample-content>
+  <div class="content">
+    <sample-content size="100"></sample-content>
+    <demo-snippet class="centered-demo">
+      <div align="center">
+        <image-mask shape="circle" size="250" src="images/jkprofile.jpg" href="#" title="J. K. Rowling Picture" desc="J. K. Rowling Profile Picture"></image-mask>
+      </div>
+    </demo-snippet>
+  </div>
 
-    </div>
-
-  </paper-scroll-header-panel>
+</paper-scroll-header-panel>
 </body>
 </html>
