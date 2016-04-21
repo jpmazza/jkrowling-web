@@ -1,7 +1,7 @@
 <DOCTYPE html>
   <html>
   <head>
-    <title>paper-scroll-header-panel: demo3</title>
+    <title>J. K. Rowling</title>
 
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -37,6 +37,8 @@
         background-color: var(--paper-grey-200, #eee);
         background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/book.jpg);
         background-position: center center;
+        min-height: 80vh;
+        padding: 0 5rem;
       }
       .spacer {
         @apply(--layout-flex);
@@ -47,22 +49,53 @@
         margin-bottom: 50px;
         color: white;
       }
-      .title h1 {
-        font-weight: 600;
-        font-size: 2.8rem;
+      h1,h3, h5 {
         font-family: Montserrat;
+        font-weight: 600;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h5 {
+        font-size: .7rem;
+        line-height: 1.6;
+        text-transform: uppercase;
+        letter-spacing: .07rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1.25rem;
+        color: #2d2d2d;
+      }
+      p {
+          font-weight: 300;
+          font-size: 1rem;
+          line-height: 1.8;
+          margin-top: 1.25rem;
       }
       .title p {
-        font-weight: 200;
-        font-size: 1.2rem;
-        font-family: Roboto;
+        font-weight: 300;
+        font-size: 1.1rem;
+        color: rgba(255,255,255,0.8);
+      }
+      #author-container {
+        text-align: center;
+        padding: 5rem 0;
+      }
+      #author-text-container {
+        margin: 15 80 0;
+      }
+      #author-text-container p {
+        text-align: center;
+        color: #797979;
+        margin-bottom: 0;
       }
     </style>
   </head>
+
   <body unresolved>
-
     <paper-scroll-header-panel condenses no-reveal no-dissolve>
-
       <div class="content image-container">
         <div class="title" align="center" >
           <h1>J. K. Rowling</h1>
@@ -70,22 +103,17 @@
         </div>
       </div>
 
-      <div class="content">
-        <sample-content size="100"></sample-content>
-        <demo-snippet class="centered-demo">
-        <div align="center">
-          <image-mask shape="circle" size="250" src="images/jkprofile.jpg" href="#" title="J. K. Rowling Picture" desc="J. K. Rowling Profile Picture"></image-mask>
+      <div id="author-container">
+        <div>
+          <image-mask shape="circle" size="250" src="images/rowling-author.jpg" href="#" title="J. K. Rowling Picture" desc="J. K. Rowling Profile Picture"></image-mask>
         </div>
-        <div align="center">
+        <div id="author-text-container">
           <h3>Joanne Rowling</h3>
-          <h5>La escritora</h5>
-          <div>
-            <p>Joanne «Jo» Rowling (Yate, South Gloucestershire, Reino Unido, 31 de julio de 1965), quien escribe bajo los seudónimos J. K. Rowling y Robert Galbraith, es una escritora y productora de cine británica, principalmente conocida por ser la creadora de la serie de libros Harry Potter. Los libros de Harry Potter han atraído atención alrededor del mundo, ganado múltiples premios y vendido más de 450 millones de copias.</p>
-          </div>
+          <h5>LA ESCRITORA</h5>
+          <p>Joanne «Jo» Rowling (Yate, South Gloucestershire, Reino Unido, 31 de julio de 1965), quien escribe bajo los seudónimos J. K. Rowling y Robert Galbraith, es una escritora y productora de cine británica, principalmente conocida por ser la creadora de la serie de libros Harry Potter. Los libros de Harry Potter han atraído atención alrededor del mundo, ganado múltiples premios y vendido más de 450 millones de copias.</p>
         </div>
-      </demo-snippet>
+      </div>
     </div>
-
   </paper-scroll-header-panel>
 </body>
 </html>
