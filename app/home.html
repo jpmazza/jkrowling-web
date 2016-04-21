@@ -12,6 +12,7 @@
     <link rel="import" href="bower_components/image-mask/image-mask.html">
     <link rel="import" href="bower_components/paper-styles/color.html">
     <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+    <link rel="import" href="elements/book-element/book-element.html">
     <link rel="import" href="sample-content.html">
 
     <link rel="stylesheet" href="bower_components/paper-styles/demo.css">
@@ -69,10 +70,10 @@
         color: #2d2d2d;
       }
       p {
-          font-weight: 300;
-          font-size: 1rem;
-          line-height: 1.8;
-          margin-top: 1.25rem;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-top: 1.25rem;
       }
       .title p {
         font-weight: 300;
@@ -96,24 +97,38 @@
 
   <body unresolved>
     <paper-scroll-header-panel condenses no-reveal no-dissolve>
-      <div class="content image-container">
-        <div class="title" align="center" >
-          <h1>J. K. Rowling</h1>
-          <p>"Si quieres ver cómo un hombre es, mira cómo trata a sus inferiores, no a sus iguales"</p>
-        </div>
-      </div>
-
-      <div id="author-container">
-        <div>
-          <image-mask shape="circle" size="250" src="images/rowling-author.jpg" href="#" title="J. K. Rowling Picture" desc="J. K. Rowling Profile Picture"></image-mask>
-        </div>
-        <div id="author-text-container">
-          <h3>Joanne Rowling</h3>
-          <h5>LA ESCRITORA</h5>
-          <p>Joanne «Jo» Rowling (Yate, South Gloucestershire, Reino Unido, 31 de julio de 1965), quien escribe bajo los seudónimos J. K. Rowling y Robert Galbraith, es una escritora y productora de cine británica, principalmente conocida por ser la creadora de la serie de libros Harry Potter. Los libros de Harry Potter han atraído atención alrededor del mundo, ganado múltiples premios y vendido más de 450 millones de copias.</p>
-        </div>
+    <div class="content image-container">
+      <div class="title" align="center" >
+        <h1>J. K. Rowling</h1>
+        <p>"Si quieres ver cómo un hombre es, mira cómo trata a sus inferiores, no a sus iguales"</p>
       </div>
     </div>
+
+    <div id="author-container">
+      <div>
+        <image-mask shape="circle" size="250" src="images/rowling-author.jpg" href="#" title="J. K. Rowling Picture" desc="J. K. Rowling Profile Picture"></image-mask>
+      </div>
+      <div id="author-text-container">
+        <h3>Joanne Rowling</h3>
+        <h5>LA ESCRITORA</h5>
+        <p>Joanne «Jo» Rowling (Yate, South Gloucestershire, Reino Unido, 31 de julio de 1965), quien escribe bajo los seudónimos J. K. Rowling y Robert Galbraith, es una escritora y productora de cine británica, principalmente conocida por ser la creadora de la serie de libros Harry Potter. Los libros de Harry Potter han atraído atención alrededor del mundo, ganado múltiples premios y vendido más de 450 millones de copias.</p>
+        
+      </div>
+      <div align="center" vertical-align="top">
+        <div class="books">
+          <h1>Legado de J.K · Libros!!</h1>
+        </div>
+        <book-element image-url="images/HPpiedrafilosofal.jpg" title="HARRY POTTER Y LA PIEDRA FILOSOFAL" button-text="comprar ahora!" button-link="show-book.html">Conoce a Harry y todos sus amigos en el primer libro de la saga y únete a nuestra comunidad!</book-element>
+        <book-element image-url="images/HPcamarasecreta.jpg" title="HARRY POTTER Y LA CAMARA SECRETA" button-text="comprar ahora!" button-link="show-book.html">Harry opina que Hogwarts es el mejor lugar del mundo. Sin embargo, la trama varía y Harry se encuentra con una responsabilidad mayor que en el primer libro de la serie.</book-element>
+        <book-element image-url="images/HPprisioneroazkaban.jpg" title="HARRY POTTER Y EL PRISIONERO DE AZKABAN" button-text="comprar ahora!" button-link="show-book.html">El libro describe que un peligroso asesino, Sirius Black, se escapó de Azkaban, la prisión de los magos, y al parecer está dispuesto a encontrar y matar a Harry.</book-element>
+        <book-element image-url="images/HPcalizfuego.jpg" title="HARRY POTTER Y EL CALIZ DE FUEGO" button-text="comprar ahora!" button-link="show-book.html">Tras la trilogía algo más infantil que son los anteriores tres volúmenes, este da paso a una nueva época en la narrativa de J. K. adoptando temas y un tono más sombrío.</book-element>
+        <book-element image-url="images/HPordenfenix.jpg" title="HARRY POTTER Y LA ORDEN DEL FENIX" button-text="comprar ahora!" button-link="show-book.html">El Ministerio de Magia niega que Voldemort haya regresado y ha iniciado una campaña de desprestigio contra Harry y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar todos sus movimientos.</book-element>
+        <book-element image-url="images/HPmisterioprincipe.jpg" title="HARRY POTTER Y EL MISTERIO DEL PRINCIPE" button-text="comprar ahora!" button-link="show-book.html">Lord Voldemort va tomando el control tanto del mundo Muggle como del mundo mágico, y Hogwarts ya no es el lugar seguro que solía ser.</book-element>
+        <book-element image-url="images/HPreliquiasmuerte.jpg" title="HARRY POTTER Y LAS RELIQUIAS DE LA MUERTE" button-text="comprar ahora!" button-link="show-book.html">Este curso Harry Potter no podrá ir a Hogwarts. Tiene una tarea más importante para el mundo mágico: la de localizar y destruir todos los Horrocruxes. Harry dejará atrás la seguridad que otros magos intentaron darle y tendrá que enfrentarse a grandes peligros para salvar su vida y la de muchos otros.</book-element>
+        <book-element image-url="images/noticias.jpg" title="NOTICIAS" button-text="ver noticias" button-link="http://www.jkrowling.com/es_ES#/noticias-eventos">J. K. nunca nos dejará de sorprender y ya veremos cual será su siguiente trabajo.</book-element>
+      </div>
+    </div>
+
   </paper-scroll-header-panel>
 </body>
 </html>

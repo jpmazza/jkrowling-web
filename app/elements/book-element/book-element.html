@@ -1,0 +1,139 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+
+<dom-module id="book-element">
+<style include="shared-styles">
+  :host {
+    display: inline-block;
+    text-align: center;
+    max-width: 300px;
+    width: 23.5%;
+    background-color: #181818;
+    margin: 1em;
+  }
+  :host.medium {
+    width: 48.5%;
+  }
+  :host.small {
+    width: 98%;
+  }
+  paper-button.white {
+    background-color: white;
+    color: black;
+  }
+  paper-button.white[active] {
+    background-color: var(--paper-red-500);
+  }
+  #button {
+    padding: 20px;
+  }
+  .title h1 {
+    font-weight: 600;
+    font-size: .7rem;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    letter-spacing: .07rem;
+    margin-bottom: 1.25rem;
+    padding: .5rem;
+    color: white;
+  }
+  .desc h2 {
+    font-weight: 300;
+    font-size: 1.1rem;
+    font-family: Roboto;
+    letter-spacing: .07rem;
+    margin-bottom: 1.25rem;
+    padding: .5rem;
+    color: white;
+  }
+  .cmn-t-pulse {
+    padding: 20px 40px;
+    animation: pulse 1s ease infinite;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: .7rem;
+    letter-spacing: .07rem;
+    /* transition: transform 0.2s; */
+  }
+  .cmn-t-pulse:hover {
+    color: #fff;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+  @media (max-width: 768px) {
+
+  }
+</style>
+<template>
+  <iron-media-query query="(max-width: 768px) and (min-width: 480px)" query-matches="{{ tooMedium }}"></iron-media-query>
+  <iron-media-query query="(max-width: 480px)" query-matches="{{ tooSmall }}"></iron-media-query>
+  <iron-image style="width:100%; height:380px;" src="[[ imageUrl ]]" sizing="cover"></iron-image>
+  <div class="title">
+    <h1>[[title]]</h1>
+  </div>
+  <div class="desc">
+    <h2><content></content></h2>
+  </div>
+  <div class="cmn-t-pulse">
+    <a href="[[ buttonLink ]]" target="_blank" class="inherit">
+      <paper-button raised class="custom white" id="button">[[ buttonText ]]</paper-button>
+    </a>
+  </div>
+</template>
+
+<script>
+  (function() {
+
+    Polymer({
+      is: 'book-element',
+
+      properties: {
+        imageUrl: {
+          type: String,
+          value: "../../images/book.jpg",
+        },
+        title: {
+          type: String,
+        },
+        buttonText: {
+          type: String,
+          value: "Comprar ahora!"
+        },          
+        buttonLink: {
+          type: String,
+        },
+        tooMedium: {
+          type: Boolean,
+          observer: '_tooMediumChanged'
+        },
+        tooSmall: {
+          type: Boolean,
+          observer: '_tooSmallChanged'
+        }
+      },
+
+      _tooMediumChanged: function(newValue, oldValue) {
+        this.toggleClass('medium', newValue);
+      },
+
+      _tooSmallChanged: function(newValue, oldValue) {
+        this.toggleClass('small', newValue);
+      }
+    });
+  })();
+</script>
+</dom-module>
