@@ -9,16 +9,9 @@
   :host {
     display: inline-block;
     text-align: center;
-    max-width: 300px;
-    width: 23.5%;
     background-color: #181818;
-    margin: 1em;
-  }
-  :host.medium {
-    width: 48.5%;
-  }
-  :host.small {
-    width: 98%;
+    width: 100%;
+    margin: 10px 0;
   }
   paper-button.white {
     background-color: white;
@@ -32,7 +25,7 @@
   }
   .title h1 {
     font-weight: 600;
-    font-size: .7rem;
+    font-size: 1.1rem;
     font-family: Montserrat;
     text-transform: uppercase;
     letter-spacing: .07rem;
@@ -42,7 +35,7 @@
   }
   .desc h2 {
     font-weight: 300;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-family: Roboto;
     letter-spacing: .07rem;
     margin-bottom: 1.25rem;
@@ -54,9 +47,8 @@
     animation: pulse 1s ease infinite;
     font-family: Montserrat;
     font-weight: bold;
-    font-size: .7rem;
+    font-size: 1.2rem;
     letter-spacing: .07rem;
-    /* transition: transform 0.2s; */
   }
   .cmn-t-pulse:hover {
     color: #fff;
@@ -74,13 +66,8 @@
       transform: scale(1);
     }
   }
-  @media (max-width: 768px) {
-
-  }
 </style>
 <template>
-  <iron-media-query query="(max-width: 768px) and (min-width: 480px)" query-matches="{{ tooMedium }}"></iron-media-query>
-  <iron-media-query query="(max-width: 480px)" query-matches="{{ tooSmall }}"></iron-media-query>
   <iron-image style="width:100%; height:380px;" src="[[ imageUrl ]]" sizing="cover"></iron-image>
   <div class="title">
     <h1>[[title]]</h1>
@@ -115,23 +102,7 @@
         },          
         buttonLink: {
           type: String,
-        },
-        tooMedium: {
-          type: Boolean,
-          observer: '_tooMediumChanged'
-        },
-        tooSmall: {
-          type: Boolean,
-          observer: '_tooSmallChanged'
         }
-      },
-
-      _tooMediumChanged: function(newValue, oldValue) {
-        this.toggleClass('medium', newValue);
-      },
-
-      _tooSmallChanged: function(newValue, oldValue) {
-        this.toggleClass('small', newValue);
       }
     });
   })();
