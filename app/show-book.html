@@ -1,5 +1,5 @@
 <DOCTYPE html>
-	<html>
+<html>
 	<head>
 		<title>JK Rowling Book</title>
 
@@ -16,6 +16,9 @@
 		<link rel="import" href="bower_components/iron-image/iron-image.html">
 		<link rel="import" href="bower_components/paper-button/paper-button.html">
 		<link rel="stylesheet" href="bower_components/paper-styles/demo.css">
+		
+		<!-- Bootstrap -->
+    	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
 		<style is="custom-style">
 		paper-scroll-header-panel {
@@ -35,11 +38,6 @@
 			width: 100%;
 			display: inline-block;
 			background-color: white;
-		}
-		.image-container {
-			background-color: var(--paper-grey-200, #eee);
-			background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/book.jpg);
-			background-position: center center;
 		}
 		.spacer {
 			@apply(--layout-flex);
@@ -62,6 +60,13 @@
 			font-family: Roboto;
 			color: #a39b9b;
 			text-align: left;
+		}
+		.subtitle {
+			font-weight: 500;
+			font-size: 2.2rem;
+			font-family: Roboto;
+			color: white;
+			text-align: center;
 		}
 		.books-remaining {
 			font-weight: 800;
@@ -129,26 +134,51 @@
 		<paper-scroll-header-panel condenses no-reveal no-dissolve>
 		<div class="content">
 			<sample-content size="100">
-		</sample-content>
-		<demo-snippet class="centered-demo">
-		<div class="photo">
-			<iron-image style="width:100%; height:400px;" sizing="contain" src="images/hp-azkaban-precio.png"></iron-image>
+			</sample-content>
+			<demo-snippet class="centered-demo">
+				<div class="photo">
+					<iron-image style="width:100%; height:400px;" sizing="contain" src="images/hp-azkaban-precio.png"></iron-image>
+				</div>
+				<div class="information" align="center">
+					<h1 class="title-heading">Harry Potter y el prisionero de Azkaban</h1>
+					<p class="title-paragraph">
+						Harry Potter y el prisionero de Azkaban, llamado también Harry Potter 3 es el tercer libro de la serie literaria Harry Potter, escrita por la autora británica J. K. Rowling en 1999.
+					</p>
+					<p class="title-paragraph">
+						El libro fue publicado en el Reino Unido el 8 de julio de 1999 por la editorial Bloomsbury y en los Estados Unidos el 8 de septiembre por Scholastic. Este fue el libro que más rápido escribió Rowling, pues lo terminó en tan solo un año después de comenzar a escribirlo. El libro vendió 68 mil copias en sus tres primeros días de lanzamiento en Reino Unido, y desde entonces ha conseguido vender 3 millones más.
+					</p>
+					<div class="cmn-t-scale">
+						<paper-button toggles raised class="custom-button">Buy it now!</paper-button>
+					</div>
+					<h3 class="books-remaining">528 books remaining</h3>
+				</div>
+			</demo-snippet>
 		</div>
-		<div class="information" align="center">
-			<h1 class="title-heading">Harry Potter y el prisionero de Azkaban</h1>
-			<p class="title-paragraph">
-				Harry Potter y el prisionero de Azkaban, llamado también Harry Potter 3 es el tercer libro de la serie literaria Harry Potter, escrita por la autora británica J. K. Rowling en 1999.
-			</p>
-			<p class="title-paragraph">
-				El libro fue publicado en el Reino Unido el 8 de julio de 1999 por la editorial Bloomsbury y en los Estados Unidos el 8 de septiembre por Scholastic. Este fue el libro que más rápido escribió Rowling, pues lo terminó en tan solo un año después de comenzar a escribirlo. El libro vendió 68 mil copias en sus tres primeros días de lanzamiento en Reino Unido, y desde entonces ha conseguido vender 3 millones más.
-			</p>
-			<div class="cmn-t-scale">
-				<paper-button toggles raised class="custom-button">Buy it now!</paper-button>
-			</div>
-			<h3 class="books-remaining">528 books remaining</h3>
-		</div>
-	</demo-snippet>
-</div>
-</paper-scroll-header-panel>
-</body>
+		<div class="container-fluid" style="background-color: black">
+      		<h1 class="subtitle">Galería de imágenes</h1>
+      		<div class="row">
+		        <div class="col-md-4 col-sm-6 col-xs-12">
+		         	<iron-image style="width:380px; height:300px;" sizing="contain" src="images/hp10.jpg"></iron-image>
+		        </div>
+		        <div class="col-md-4 col-sm-6 col-xs-12">
+		        	<iron-image style="width:380px; height:300px;" sizing="contain" src="images/hp2.jpg"></iron-image> 
+		        </div>
+		        <div class="col-md-4 col-sm-6 col-xs-12">
+		        	<iron-image style="width:380px; height:300px;" sizing="contain" src="images/hp13.jpg"></iron-image>  
+		        </div>
+      		</div>
+      		<div class="row">
+		        <div class="col-md-4 col-sm-6 hidden-xs">
+		        	<iron-image style="width:380px; height:300px;" sizing="contain" src="images/hp6.jpg"></iron-image>
+		        </div>
+		        <div class="col-md-4 col-sm-6 hidden-xs">
+		        	<iron-image style="width:380px; height:300px;" sizing="contain" src="images/hp9.jpg"></iron-image>  
+		        </div>
+		        <div class="col-md-4 col-sm-6 hidden-xs">
+		        	<iron-image style="width:380px; height:300px;" sizing="contain" src="images/hp12.jpg"></iron-image>  
+		        </div>
+      		</div>
+    	</div>
+		</paper-scroll-header-panel>
+	</body>
 </html>
