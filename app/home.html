@@ -16,6 +16,8 @@
     <link rel="import" href="sample-content.html">
 
     <link rel="stylesheet" href="bower_components/paper-styles/demo.css">
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style is="custom-style">
       paper-scroll-header-panel {
@@ -30,9 +32,6 @@
           background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/book.jpg);
           background-position: top left;
         };
-      }
-      .content {
-        padding: 8px;
       }
       .image-container {
         background-color: var(--paper-grey-200, #eee);
@@ -53,15 +52,16 @@
       h1,h3, h5 {
         font-family: Montserrat;
         font-weight: 600;
+        text-align: center;
       }
       h1 {
-        font-size: 2.8rem;
+        font-size: 4.7rem;
       }
       h3 {
-        font-size: 1.4rem;
+        font-size: 2.4rem;
       }
       h5 {
-        font-size: .7rem;
+        font-size: 1.4rem;
         line-height: 1.6;
         text-transform: uppercase;
         letter-spacing: .07rem;
@@ -71,18 +71,19 @@
       }
       p {
         font-weight: 300;
-        font-size: 1rem;
+        font-size: 1.4rem;
         line-height: 1.8;
         margin-top: 1.25rem;
       }
       .title p {
         font-weight: 300;
-        font-size: 1.1rem;
+        font-size: 1.6rem;
         color: rgba(255,255,255,0.8);
       }
       #author-container {
         text-align: center;
         padding: 5rem 0;
+        margin: 0 15rem;
       }
       #author-text-container {
         margin: 15 80 0;
@@ -92,12 +93,33 @@
         color: #797979;
         margin-bottom: 0;
       }
+      #books-title {
+        font-size: 2.4rem;
+        margin: 40px 0;
+      }
+      
+      @media (max-width: 768px) {
+        #author-container {
+          margin: 0 5rem;
+        }
+      }
+      @media (max-width: 480px) {
+        #author-container {
+          margin: 0;
+        }
+        #author-text-container {
+          margin: 15 20 0;
+        }
+        .image-container {
+          padding: 0 10px;
+        }
+      }
     </style>
   </head>
 
   <body unresolved>
     <paper-scroll-header-panel condenses no-reveal no-dissolve>
-    <div class="content image-container">
+    <div class="image-container">
       <div class="title" align="center" >
         <h1>J. K. Rowling</h1>
         <p>"Si quieres ver cómo un hombre es, mira cómo trata a sus inferiores, no a sus iguales"</p>
@@ -112,23 +134,41 @@
         <h3>Joanne Rowling</h3>
         <h5>LA ESCRITORA</h5>
         <p>Joanne «Jo» Rowling (Yate, South Gloucestershire, Reino Unido, 31 de julio de 1965), quien escribe bajo los seudónimos J. K. Rowling y Robert Galbraith, es una escritora y productora de cine británica, principalmente conocida por ser la creadora de la serie de libros Harry Potter. Los libros de Harry Potter han atraído atención alrededor del mundo, ganado múltiples premios y vendido más de 450 millones de copias.</p>
-        
-      </div>
-      <div align="center" vertical-align="top">
-        <div class="books">
-          <h1>Legado de J.K · Libros!!</h1>
-        </div>
-        <book-element image-url="images/HPpiedrafilosofal.jpg" title="HARRY POTTER Y LA PIEDRA FILOSOFAL" button-text="comprar ahora!" button-link="show-book.html">Conoce a Harry y todos sus amigos en el primer libro de la saga y únete a nuestra comunidad!</book-element>
-        <book-element image-url="images/HPcamarasecreta.jpg" title="HARRY POTTER Y LA CAMARA SECRETA" button-text="comprar ahora!" button-link="show-book.html">Harry opina que Hogwarts es el mejor lugar del mundo. Sin embargo, la trama varía y Harry se encuentra con una responsabilidad mayor que en el primer libro de la serie.</book-element>
-        <book-element image-url="images/HPprisioneroazkaban.jpg" title="HARRY POTTER Y EL PRISIONERO DE AZKABAN" button-text="comprar ahora!" button-link="show-book.html">El libro describe que un peligroso asesino, Sirius Black, se escapó de Azkaban, la prisión de los magos, y al parecer está dispuesto a encontrar y matar a Harry.</book-element>
-        <book-element image-url="images/HPcalizfuego.jpg" title="HARRY POTTER Y EL CALIZ DE FUEGO" button-text="comprar ahora!" button-link="show-book.html">Tras la trilogía algo más infantil que son los anteriores tres volúmenes, este da paso a una nueva época en la narrativa de J. K. adoptando temas y un tono más sombrío.</book-element>
-        <book-element image-url="images/HPordenfenix.jpg" title="HARRY POTTER Y LA ORDEN DEL FENIX" button-text="comprar ahora!" button-link="show-book.html">El Ministerio de Magia niega que Voldemort haya regresado y ha iniciado una campaña de desprestigio contra Harry y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar todos sus movimientos.</book-element>
-        <book-element image-url="images/HPmisterioprincipe.jpg" title="HARRY POTTER Y EL MISTERIO DEL PRINCIPE" button-text="comprar ahora!" button-link="show-book.html">Lord Voldemort va tomando el control tanto del mundo Muggle como del mundo mágico, y Hogwarts ya no es el lugar seguro que solía ser.</book-element>
-        <book-element image-url="images/HPreliquiasmuerte.jpg" title="HARRY POTTER Y LAS RELIQUIAS DE LA MUERTE" button-text="comprar ahora!" button-link="show-book.html">Este curso Harry Potter no podrá ir a Hogwarts. Tiene una tarea más importante para el mundo mágico: la de localizar y destruir todos los Horrocruxes. Harry dejará atrás la seguridad que otros magos intentaron darle y tendrá que enfrentarse a grandes peligros para salvar su vida y la de muchos otros.</book-element>
-        <book-element image-url="images/noticias.jpg" title="NOTICIAS" button-text="ver noticias" button-link="http://www.jkrowling.com/es_ES#/noticias-eventos">J. K. nunca nos dejará de sorprender y ya veremos cual será su siguiente trabajo.</book-element>
       </div>
     </div>
+    <div class="container-fluid" style="background-color: #cbc6c6">
+      <h1 id="books-title">Legado de J.K · Libros!!</h1>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <book-element image-url="images/HPpiedrafilosofal.jpg" title="HARRY POTTER Y LA PIEDRA FILOSOFAL" button-text="comprar ahora!" button-link="show-book.html">Conoce a Harry y todos sus amigos en el primer libro de la saga y únete a nuestra comunidad!</book-element>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <book-element image-url="images/HPcamarasecreta.jpg" title="HARRY POTTER Y LA CAMARA SECRETA" button-text="comprar ahora!" button-link="show-book.html">Harry opina que Hogwarts es el mejor lugar del mundo. Sin embargo, la trama varía y Harry se encuentra con una responsabilidad mayor que en el primer libro de la serie.</book-element>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <book-element image-url="images/HPprisioneroazkaban.jpg" title="HARRY POTTER Y EL PRISIONERO DE AZKABAN" button-text="comprar ahora!" button-link="show-book.html">El libro describe que un peligroso asesino, Sirius Black, se escapó de Azkaban, la prisión de los magos, y al parecer está dispuesto a encontrar y matar a Harry.</book-element>
+        </div>
+        <div class="col-md-3 col-sm-6 hidden-xs">
+          <book-element image-url="images/HPcalizfuego.jpg" title="HARRY POTTER Y EL CALIZ DE FUEGO" button-text="comprar ahora!" button-link="show-book.html">Tras la trilogía algo más infantil que son los anteriores tres volúmenes, este da paso a una nueva época en la narrativa de J. K. adoptando temas y un tono más sombrío.</book-element>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 hidden-xs">
+          <book-element image-url="images/HPordenfenix.jpg" title="HARRY POTTER Y LA ORDEN DEL FENIX" button-text="comprar ahora!" button-link="show-book.html">El Ministerio de Magia niega que Voldemort haya regresado y ha iniciado una campaña de desprestigio contra Harry y Dumbledore, para lo cual ha asignado a la horrible profesora Dolores Umbridge la tarea de vigilar todos sus movimientos.</book-element>
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+          <book-element image-url="images/HPmisterioprincipe.jpg" title="HARRY POTTER Y EL MISTERIO DEL PRINCIPE" button-text="comprar ahora!" button-link="show-book.html">Lord Voldemort va tomando el control tanto del mundo Muggle como del mundo mágico, y Hogwarts ya no es el lugar seguro que solía ser.</book-element>
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+          <book-element image-url="images/HPreliquiasmuerte.jpg" title="HARRY POTTER Y LAS RELIQUIAS DE LA MUERTE" button-text="comprar ahora!" button-link="show-book.html">Este curso Harry Potter no podrá ir a Hogwarts. Tiene una tarea más importante para el mundo mágico: la de localizar y destruir todos los Horrocruxes. Harry dejará atrás la seguridad que otros magos intentaron darle y tendrá que enfrentarse a grandes peligros para salvar su vida y la de muchos otros.</book-element>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <book-element image-url="images/noticias.jpg" title="NOTICIAS" button-text="ver noticias" button-link="http://www.jkrowling.com/es_ES#/noticias-eventos">J. K. nunca nos dejará de sorprender y ya veremos cual será su siguiente trabajo.</book-element>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  </paper-scroll-header-panel>
+</paper-scroll-header-panel>
 </body>
 </html>
