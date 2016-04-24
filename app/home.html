@@ -13,11 +13,14 @@
     <link rel="import" href="bower_components/paper-styles/color.html">
     <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
     <link rel="import" href="elements/book-element/book-element.html">
+    <link rel="import" href="elements/award-element/award-element.html">
+
     <link rel="import" href="sample-content.html">
 
     <link rel="stylesheet" href="bower_components/paper-styles/demo.css">
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
     <style is="custom-style">
       paper-scroll-header-panel {
@@ -75,6 +78,10 @@
         line-height: 1.8;
         margin-top: 1.25rem;
       }
+      .section-title {
+        font-size: 2.8rem;
+        margin-bottom: 30px;
+      }
       .title p {
         font-weight: 300;
         font-size: 1.6rem;
@@ -96,6 +103,12 @@
       #books-title {
         font-size: 2.4rem;
         margin: 40px 0;
+      }
+      #awards-container {
+        margin: 0;
+        padding: 50px;
+        background-color: white;
+        width: 100%;
       }
       .row div {
         text-align: center;
@@ -138,6 +151,25 @@
         <p>Joanne «Jo» Rowling (Yate, South Gloucestershire, Reino Unido, 31 de julio de 1965), quien escribe bajo los seudónimos J. K. Rowling y Robert Galbraith, es una escritora y productora de cine británica, principalmente conocida por ser la creadora de la serie de libros Harry Potter. Los libros de Harry Potter han atraído atención alrededor del mundo, ganado múltiples premios y vendido más de 450 millones de copias.</p>
       </div>
     </div>
+
+    <div id="awards-container">
+      <h3 class="section-title">Premios</h3>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <award-element image-url="images/" title="Premio 1" background-color="#68d6ce">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</award-element>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <award-element image-url="images/" title="Premio 2" background-color="#8db8d9">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</award-element>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <award-element image-url="images/" title="Premio 3" background-color="#688cd6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</award-element>
+        </div>
+        <div class="col-md-3 col-sm-6 hidden-xs">
+          <award-element image-url="images/" title="Premio 4" background-color="#7883f7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</award-element>
+        </div>
+      </div>
+    </div>
+
     <div class="container-fluid" style="background-color: #cbc6c6">
       <h1 id="books-title">Legado de J.K · Libros!!</h1>
       <div class="row">

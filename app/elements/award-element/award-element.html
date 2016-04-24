@@ -1,0 +1,67 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+
+<dom-module id="award-element">
+<style include="shared-styles">
+  :host {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 1.4;
+  }
+  p {
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #797979;
+    padding: 0 10px;
+  }
+  i {
+    margin-top: 20px;
+  }
+  #award-container {
+    border-radius: 10px;
+    padding-bottom: 20px;
+  }
+</style>
+
+<template>
+  <div id="award-container" style="background-color: [[ backgroundColor ]]">
+    <i class="fa fa-trophy fa-5x" aria-hidden="true"></i>
+    <h3>[[ title ]]</h3>
+    <p><content></content></p>
+  </div>
+</template>
+
+<script>
+  (function() {
+
+    Polymer({
+      is: 'award-element',
+
+      properties: {
+        imageUrl: {
+          type: String,
+          value: "../../images/book.jpg",
+        },
+        title: {
+          type: String,
+        },
+        backgroundColor: {
+          type: String,
+        }
+      }
+    });
+  })();
+</script>
+</dom-module>
