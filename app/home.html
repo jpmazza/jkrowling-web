@@ -136,6 +136,9 @@
       .row div {
         text-align: center;
       }
+      .footer-icon {
+        float: right;
+      }
       @media (max-width: 768px) {
         #author-container {
           margin: 0 5rem;
@@ -156,6 +159,9 @@
         }
         .footer-images {
           width: 100%;
+        }
+        .footer-icon {
+          float: left;
         }
       }
     </style>
@@ -243,9 +249,9 @@
         <p>info@strarup.com</p>
       </div>
       <div class="footer-images">
-          <iron-image src="images/tw.png" sizing="cover"></iron-image>
-          <iron-image src="images/fb.png" sizing="cover"></iron-image>
-          <iron-image src="images/yt.png" sizing="cover"></iron-image>
+          <iron-image class="footer-icon" src="images/tw.png" sizing="cover"></iron-image>
+          <iron-image class="footer-icon" src="images/fb.png" sizing="cover"></iron-image>
+          <iron-image class="footer-icon" src="images/yt.png" sizing="cover"></iron-image>
       </div>
     </div>
   </div>
