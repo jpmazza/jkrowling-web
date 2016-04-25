@@ -1,0 +1,66 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+
+<dom-module id="review-element">
+<style include="shared-styles">
+  :host {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+  }
+  .title h1 {
+    text-align: center;
+    color: black;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 2.0rem;
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+    box-sizing: border-box;
+  }
+  .desc h2 {
+    text-align: center;
+    color: #a39b9b;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-top: 1.25rem;
+    box-sizing: border-box;
+  }
+</style>
+<template>
+  <iron-image style="width:100%; height:20px;" src="[[ imageLogo ]]" sizing="contain"></iron-image>
+  <div class="title">
+    <h1>[[ title ]]</h1>
+  </div>
+  <div class="desc">
+    <h2><content></content></h2>
+  </div>
+  <iron-image style="width:100%; height:20px;" src="[[ imageStars ]]" sizing="contain"></iron-image>
+</template>
+
+<script>
+  (function() {
+
+    Polymer({
+      is: 'review-element',
+
+      properties: {
+        imageLogo: {
+          type: String,
+          value: "../../images/book.jpg",
+        },
+        title: {
+          type: String,
+        },         
+        imageStars: {
+          type: String,
+        }
+      }
+    });
+  })();
+</script>
+</dom-module>
