@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../comment-element/comment-element.html">
@@ -20,7 +21,12 @@
   paper-button {
     font-family: 'Roboto';
   }
-  .container {
+  .custom-button {
+    background-color: white;
+    font-family: Montserrat;
+    color: black;
+    width: 150px;
+    height: 40px;
   }
 </style>
 
@@ -39,7 +45,12 @@
   <comment-element name="[[ item.user ]]" image="[[ item.image ]]" time="[[ item.DateTime ]]">[[ item.comment ]]</comment-element>
 
 </template>
-  <paper-button id="btnAddStaff" raised>Agregar Staff</paper-button>
+  <div>
+    <paper-input label="Nombre" value="{{ _name }}" char-counter maxlength="20"></paper-input>
+    <paper-textarea label="Comentario" value="{{ _comment }}" style="padding-bottom: 20px"></paper-textarea>
+    <paper-button toggles raised id="btnAddComment" class="custom-button">Comentar</paper-button>
+  </div>
+  <!--paper-button id="btnAddStaff" raised>Agregar Staff</paper-button-->
 </template>
 </dom-module>
 
@@ -52,15 +63,21 @@
         value: function() {
           return [];
         }
+      },
+      _name: {
+        type: String
+      },
+      _comment: {
+        type: String
       }
     },
 
     listeners: {
-      'btnAddStaff.tap': '_addStaff'
+      'btnAddComment.tap': '_addComment'
     },
 
-    _addStaff: function(e) {
-      this.push('_staffArray', { name: "Nuevo Staff" });
+    _addComment: function(e) {
+      this.push('_commentsArray', { user: this._name , comment: this._comment });
     },
 
     // Element Lifecycle
