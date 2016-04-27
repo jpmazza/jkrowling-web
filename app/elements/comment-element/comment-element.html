@@ -1,0 +1,95 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+
+<dom-module id="comment-element">
+  <style>
+    :host {
+      display: block;
+      box-sizing: border-box;
+      margin: 1em;
+      padding: 1em;
+      min-width: 240px;
+      font-family: sans-serif;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      background-color: #C8C8C8;
+    }
+    :host.small {
+      margin: 1em 0;
+    }
+    iron-image {
+      width: 4em;
+      height: 4em;
+      border-radius: .2em;
+    }
+    #author-container {
+      display: flex;
+      align-items: center;
+    }
+    #author-name {
+      font-size: small;
+      padding-left: 1em;
+    }
+    #comment-body {
+      font-size: small;
+      font-weight: 300;
+      margin: 1em 1em 1em 3.5em;
+    }
+  </style>
+
+<template>
+    <iron-media-query query="[[ mediaQuery ]]" 
+                      query-matches="{{ tooSmall }}"></iron-media-query>
+    <div id="author-container">
+      <iron-image src="[[ image ]]" sizing="cover"></iron-image>
+      <span id="author-name">[[ name ]]</span>
+      <span> [[ time ]]</span>
+    </div>
+    <p id="comment-body">
+      <content></content>
+    </p>
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: 'comment-element',
+    properties: {
+      name: {
+        type: String,
+        value: 'Undefined'
+      },
+      image: {
+        type: String,
+        value: 'https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg'
+      },
+      time: {
+        type: String,
+        value: '09/11/15 15:45'
+      },
+      mediaQuery: {
+        type: String,
+        value: function() {
+          return "(max-width: 320px)";
+        }
+      },
+      tooSmall: {
+        type: Boolean,
+        observer: '_tooSmallChanged'
+      }
+    },
+
+    _tooSmallChanged: function(newValue, oldValue) {
+      this.toggleClass('small', newValue);
+    },
+
+    ready: function() {
+    },
+    attached: function() {
+    },
+    detached: function() {
+    }
+  });
+</script>
