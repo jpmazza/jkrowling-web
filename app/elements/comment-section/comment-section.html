@@ -31,26 +31,15 @@
 </style>
 
 <template>
-  <iron-ajax auto
-  url="../comments.json"
-  params=""
-  handle-as="json"
-  last-response="{{ _commentsArray }}"
-  debounce-duration="300"></iron-ajax>
-  <template is="dom-repeat"
-  items="[[ _commentsArray ]]">
-    <!--paper-card>
-    <p class="card-content">[[ item.user ]]</p>
-  </paper-card-->
-  <comment-element name="[[ item.user ]]" image="[[ item.image ]]" time="[[ item.DateTime ]]">[[ item.comment ]]</comment-element>
-
-</template>
+  <iron-ajax auto url="../comments.json" params="" handle-as="json" last-response="{{ _commentsArray }}" debounce-duration="300"></iron-ajax>
+  <template is="dom-repeat" items="[[ _commentsArray ]]">
+    <comment-element name="[[ item.user ]]" image="[[ item.image ]]" time="[[ item.DateTime ]]">[[ item.comment ]]</comment-element>
+  </template>
   <div>
     <paper-input label="Nombre" value="{{ _name }}" char-counter maxlength="20"></paper-input>
     <paper-textarea label="Comentario" value="{{ _comment }}" style="padding-bottom: 20px"></paper-textarea>
     <paper-button toggles raised id="btnAddComment" class="custom-button">Comentar</paper-button>
   </div>
-  <!--paper-button id="btnAddStaff" raised>Agregar Staff</paper-button-->
 </template>
 </dom-module>
 
