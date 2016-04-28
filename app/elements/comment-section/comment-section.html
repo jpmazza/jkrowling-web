@@ -1,5 +1,4 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
@@ -13,16 +12,17 @@
   }
   paper-input {
     width: 200px;
-  }
-  paper-card {
-    display: block;
-    max-width: 200px;
+    --paper-input-container-input-color: white;
+    --paper-input-container-color: #c8c8c8;
+    --paper-input-container-focus-color: #c8c8c8;
   }
   paper-button {
     font-family: 'Roboto';
   }
-  .paper-input-container-0 .input-content.paper-input-container input {
-    color: white;
+  paper-textarea {
+    --paper-input-container-input-color: white;
+    --paper-input-container-color: #c8c8c8;
+    --paper-input-container-focus-color: #c8c8c8;
   }
   .custom-button {
     background-color: white;
