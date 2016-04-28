@@ -1,0 +1,138 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="title-section">
+<style include="shared-styles">
+  :host {
+  }
+  .content {
+    width: 100%;
+    display: inline-block;
+    background-color: white;
+    padding-bottom: 20px;
+  }
+  .photo {
+    width: 30%;
+    display: inline-block;
+    float: left;
+    padding-top: 15px;
+  }
+  .information {
+    width: 70%;
+    display: inline-block;
+    float: left;
+  }
+  .title-heading {
+    font-weight: 700;
+    font-size: 3.2rem;
+    font-family: Montserrat;
+    color: #2d2d2d;
+    text-align: left;
+  }
+  .title-paragraph {
+    font-weight: 400;
+    font-size: 2.1rem;
+    font-family: Roboto;
+    color: #a39b9b;
+    text-align: left;
+  }
+  .custom-button {
+    font-weight: 800;
+    font-size: 1.8rem;
+    background-color: rgba(139, 94, 35, 0.97);
+    font-family: Montserrat;
+    color: white;
+    width: 400px;
+    height: 50px;
+  }
+  .books-remaining {
+    font-weight: 800;
+    font-size: 2.0rem;
+    font-family: Montserrat;
+    color: rgba(139, 94, 35, 0.97);
+  }
+  .cmn-t-scale {
+    width: 400px;
+    height: 50px;
+  }
+  .cmn-t-scale:hover {
+    transform: scale(1.1);
+  }
+  @media (max-width: 1024px) {
+    .photo {
+      float: center;
+      width: 100%;
+    }
+    .information {
+      width: 100%;
+    }
+    .title-heading {
+      text-align: center;
+    }
+    .title-paragraph {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+  @media (max-width: 480px) {
+    .title-paragraph {
+      text-align: center;
+    }
+    .custom-button {
+      font-weight: 600;
+      font-size: 1.6rem;
+      width: 300px;
+      height: 40px;
+    }
+  }
+</style>
+<template>
+<iron-ajax auto url="elements/[[ _id ]].json" params="" handle-as="json" last-response="{{ _book }}" debounce-duration="300"></iron-ajax>
+  <div class="content">
+    <sample-content size="100">
+  </sample-content>
+  <demo-snippet class="centered-demo">
+  <div class="photo">
+    <iron-image style="width:100%; height:400px;" sizing="contain" src="[[ _book.image ]]"></iron-image>
+  </div>
+  <div class="information" align="center">
+    <h1 class="title-heading">[[ _book.title ]]</h1>
+    <p class="title-paragraph">[[ _book.description ]]</p>
+    <div class="cmn-t-scale"  style="padding-top: 20px">
+      <paper-button toggles raised class="custom-button">Buy it now!</paper-button>
+    </div>
+    <h3 class="books-remaining" style="padding-top: 20px">[[ _book.items-remaining ]] books remaining</h3>
+  </div>
+</demo-snippet>
+</div>
+</template>
+
+<script>
+
+  Polymer({
+    is: 'title-section',
+    properties: {
+      _id: {
+        type: Number,
+        value: function() {
+          return 1;
+        }
+      },
+      _book: {
+        type: Object,
+        value: function() {
+          return {};
+        }
+      }
+    },
+
+    ready: function() {
+      var id = location.search.split('id=')[1]
+      this._id = id
+    }
+  });
+
+</script>
+</dom-module>

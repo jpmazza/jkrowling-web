@@ -1,0 +1,103 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+
+<dom-module id="comment-element">
+  <style>
+    :host {
+      display: block;
+      box-sizing: border-box;
+      margin: 1em;
+      padding: 1em;
+      min-width: 240px;
+      font-family: sans-serif;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      background-color: #C8C8C8;
+    }
+    :host.small {
+      margin: 1em 0;
+    }
+    iron-image {
+      width: 4em;
+      height: 4em;
+    }
+    #author-container {
+      display: flex;
+      align-items: center;
+    }
+    .author {
+      width: 100%;
+      padding-left: 10px;
+    }
+    .author h1 {
+      width: 100%;
+      font-family: Montserrat;
+      font-weight: 900;
+      font-size: 2.1rem;
+    }    
+    .author p {
+      width: 100%;
+    }
+    #comment-body {
+      font-family: Roboto;
+      font-weight: 300;
+      font-size: 2rem;
+      line-height: 1.8;
+      text-align: left;
+    }
+    @media (max-width: 480px) {
+      iron-image {
+        display: none;
+      }
+      .author p {
+        display: none;
+      }
+      .author h1 {
+        text-align: center;
+      }
+    }
+  </style>
+
+<template>
+    <div id="author-container">
+      <iron-image src="[[ image ]]" sizing="cover"></iron-image>
+      <div class="author">
+      <h1>[[ name ]]</h1>
+      <p> [[ time ]]</p>
+      </div>
+    </div>
+    <p id="comment-body">
+      <content></content>
+    </p>
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: 'comment-element',
+    properties: {
+      name: {
+        type: String,
+        value: 'Undefined'
+      },
+      image: {
+        type: String,
+        value: 'https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg'
+      },
+      time: {
+        type: String,
+        value: '09/11/15 15:45:12'
+      }
+    },
+
+
+    ready: function() {
+    },
+    attached: function() {
+    },
+    detached: function() {
+    }
+  });
+</script>

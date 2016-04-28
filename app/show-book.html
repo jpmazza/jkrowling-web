@@ -1,5 +1,5 @@
 <DOCTYPE html>
-<html>
+	<html>
 	<head>
 		<title>JK Rowling Book</title>
 
@@ -12,196 +12,171 @@
 		<link rel="import" href="bower_components/image-mask/image-mask.html">
 		<link rel="import" href="bower_components/paper-styles/color.html">
 		<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
-		<link rel="import" href="sample-content.html">
 		<link rel="import" href="bower_components/iron-image/iron-image.html">
 		<link rel="import" href="bower_components/paper-button/paper-button.html">
 		<link rel="import" href="elements/review-element/review-element.html">
+		<link rel="import" href="elements/comment-element/comment-element.html">
+		<link rel="import" href="elements/comment-section/comment-section.html">
+		<link rel="import" href="elements/title-section/title-section.html">
+		<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 		<link rel="stylesheet" href="bower_components/paper-styles/demo.css">
-		
+		<link rel="stylesheet" href="bower_components/paper-styles/demo.css">
 		<!-- Bootstrap -->
-    	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
 		<style is="custom-style">
-		paper-scroll-header-panel {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background-color: var(--paper-grey-200, #eee);
-			/* background for toolbar when it is at its full size */
-			--paper-scroll-header-panel-full-header: {
-				background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/book.jpg);
-				background-position: top left;
-			};
-		}
-		.content {
-			width: 100%;
-			display: inline-block;
-			background-color: white;
-		}
-		.spacer {
-			@apply(--layout-flex);
-		}
-		.title {
-			padding-top: 140px;        
-			line-height: 1.2;
-			margin-bottom: 50px;
-		}
-		.title-heading {
-			font-weight: 700;
-			font-size: 3.2rem;
-			font-family: Montserrat;
-			color: #2d2d2d;
-			text-align: left;
-		}
-		.title-paragraph {
-			font-weight: 400;
-			font-size: 2.1rem;
-			font-family: Roboto;
-			color: #a39b9b;
-			text-align: left;
-		}
-		.subtitle {
-			font-weight: 500;
-			font-size: 2.2rem;
-			font-family: Roboto;
-			color: white;
-			text-align: center;
-		}
-		.books-remaining {
-			font-weight: 800;
-			font-size: 2.0rem;
-			font-family: Montserrat;
-			color: rgba(139, 94, 35, 0.97);
-		}
-		.custom-button {
-			font-weight: 800;
-			font-size: 1.8rem;
-			background-color: rgba(139, 94, 35, 0.97);
-			font-family: Montserrat;
-			color: white;
-			width: 400px;
-			height: 50px;
-		}
-		.photo {
-			width: 30%;
-			display: inline-block;
-			float: left;
-			padding-top: 15px;
-		}
-		.information {
-			width: 70%;
-			display: inline-block;
-			float: left;
-		}
-		.cmn-t-scale {
-			width: 400px;
-			height: 50px;
-		}
-		.cmn-t-scale:hover {
-			transform: scale(1.1);
-		}
-		#review-title {
-			color: black;
-		}
-		.gallery-image {
-			width: 100%;
-			height: 40%;
-		}
-		@media (max-width: 1024px) {
-			.photo {
-				float: center;
-				width: 100%;
+
+			paper-scroll-header-panel {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: var(--paper-grey-200, #eee);
+				/* background for toolbar when it is at its full size */
+				--paper-scroll-header-panel-full-header: {
+					background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/book.jpg);
+					background-position: top left;
+				};
 			}
-			.information {
+			.content {
 				width: 100%;
+				display: inline-block;
+				background-color: white;
 			}
-			.title-heading {
+			.content-black {
+				width: 100%;
+				display: inline-block;
+				background-color: black;
+			}
+			.spacer {
+				@apply(--layout-flex);
+			}
+			.title {
+				padding-top: 140px;        
+				line-height: 1.2;
+				margin-bottom: 50px;
+			}
+			.subtitle {
+				font-weight: 500;
+				font-size: 2.2rem;
+				font-family: Roboto;
+				color: white;
 				text-align: center;
 			}
-			.title-paragraph {
-				margin-left: 15px;
-				margin-right: 15px;
+			#review-title {
+				color: black;
 			}
-		}
-		@media (max-width: 480px) {
-			.title-paragraph {
-				text-align: center;
+			.gallery-image {
+				width: 100%;
+				height: 40%;
 			}
-			.custom-button {
-				font-weight: 600;
-				font-size: 1.6rem;
-				width: 300px;
-				height: 40px;
+			@media (max-width: 1024px) {
+				.photo {
+					float: center;
+					width: 100%;
+				}
+				.content {
+					width: 100%;
+					display: inline-block;
+					background-color: white;
+				}
+				.spacer {
+					@apply(--layout-flex);
+				}
+				.title {
+					padding-top: 140px;        
+					line-height: 1.2;
+					margin-bottom: 50px;
+				}
+				.title-heading {
+					font-weight: 700;
+					font-size: 3.2rem;
+					font-family: Montserrat;
+					color: #2d2d2d;
+					text-align: left;
+				}
+				.title-paragraph {
+					font-weight: 400;
+					font-size: 2.1rem;
+					font-family: Roboto;
+					color: #a39b9b;
+					text-align: left;
+				}
+				.subtitle {
+					font-weight: 500;
+					font-size: 2.2rem;
+					font-family: Roboto;
+					color: white;
+					text-align: center;
+				}
+				.books-remaining {
+					font-weight: 800;
+					font-size: 2.0rem;
+					font-family: Montserrat;
+					color: rgba(139, 94, 35, 0.97);
+				}
+				.custom-button {
+					font-weight: 600;
+					font-size: 1.6rem;
+					width: 300px;
+					height: 40px;
+				}
 			}
-		}
 		</style>
 	</head>
 	<body unresolved>
 		<paper-scroll-header-panel condenses no-reveal no-dissolve>
-		<div class="content" style="padding-bottom: 20px">
-			<sample-content size="100">
-			</sample-content>
-			<demo-snippet class="centered-demo">
-				<div class="photo">
-					<iron-image style="width:100%; height:400px;" sizing="contain" src="images/hp-azkaban-precio.png"></iron-image>
-				</div>
-				<div class="information" align="center">
-					<h1 class="title-heading">Harry Potter y el prisionero de Azkaban</h1>
-					<p class="title-paragraph">
-						Harry Potter y el prisionero de Azkaban, llamado también Harry Potter 3 es el tercer libro de la serie literaria Harry Potter, escrita por la autora británica J. K. Rowling en 1999.
-					</p>
-					<p class="title-paragraph">
-						El libro fue publicado en el Reino Unido el 8 de julio de 1999 por la editorial Bloomsbury y en los Estados Unidos el 8 de septiembre por Scholastic. Este fue el libro que más rápido escribió Rowling, pues lo terminó en tan solo un año después de comenzar a escribirlo. El libro vendió 68 mil copias en sus tres primeros días de lanzamiento en Reino Unido, y desde entonces ha conseguido vender 3 millones más.
-					</p>
-					<div class="cmn-t-scale"  style="padding-top: 20px">
-						<paper-button toggles raised class="custom-button">Buy it now!</paper-button>
-					</div>
-					<h3 class="books-remaining" style="padding-top: 20px">528 books remaining</h3>
-				</div>
-			</demo-snippet>
-		</div>
+		<title-section></title-section>
 		<div class="container-fluid" style="background-color: black">
-      		<h1 class="subtitle">Galería de imágenes</h1>
-      		<div class="row">
-		        <div class="col-md-4 col-sm-6 col-xs-12">
-		         	<iron-image class="gallery-image" sizing="contain" src="images/hp10.jpg"></iron-image>
-		        </div>
-		        <div class="col-md-4 col-sm-6 col-xs-12">
-		        	<iron-image class="gallery-image" sizing="contain" src="images/hp2.jpg"></iron-image> 
-		        </div>
-		        <div class="col-md-4 col-sm-6 col-xs-12">
-		        	<iron-image class="gallery-image" sizing="contain" src="images/hp13.jpg"></iron-image>  
-		        </div>
-		        <div class="col-md-4 col-sm-6 hidden-xs">
-		        	<iron-image class="gallery-image" sizing="contain" src="images/hp6.jpg"></iron-image>
-		        </div>
-		        <div class="col-md-4 col-sm-6 hidden-xs">
-		        	<iron-image class="gallery-image" sizing="contain" src="images/hp9.jpg"></iron-image>  
-		        </div>
-		        <div class="col-md-4 col-sm-6 hidden-xs">
-		        	<iron-image class="gallery-image" sizing="contain" src="images/hp12.jpg"></iron-image>  
-		        </div>
-      		</div>
-    	</div>
-    	<div class="container-fluid">
-    	<h1 class="subtitle" id="review-title">Reseñas</h1>
-    		<div class="row">
-    			<div class="col-md-3 col-sm-6 col-xs-12">
-		         	<review-element image-logo="images/empire.png" title="EMPIRE" image-stars="images/stars.png">"Now 13, Harry Potter and chums are back off to Hogwarts, only to find that a dangerous escaped prisoner..."</review-element>
-		        </div>
-		        <div class="col-md-3 col-sm-6 col-xs-12">
-		         	<review-element image-logo="images/roger-ebert.png" title="ROGER EBERT" image-stars="images/stars.png">"In this adventure Harry will do battle with giant lizards, face the attack of the Death Eaters, and in perhaps the most difficult task..."</review-element>
-		        </div>
-		        <div class="col-md-3 col-sm-6 hidden-xs">
-		         	<review-element image-logo="images/commonsenses.png" title="COMMON SENSE" image-stars="images/stars.png">"J.K. Rowling has sidestepped the usual series-writer trap of sticking so closely to a successful formula that each book is just..."</review-element>
-		        </div>
-		        <div class="col-md-3 col-sm-6 hidden-xs">
-		         	<review-element image-logo="images/nytimes.png" title="NY TIMES" image-stars="images/stars.png">"Harry Potter and the Prisoner of Azkaban,'' by the Scottish writer J. K. Rowling, is the third in her projected series..."</review-element>
-		        </div>
-    		</div>
-    	</div>
-		</paper-scroll-header-panel>
-	</body>
+			<h1 class="subtitle">Galería de imágenes</h1>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<iron-image style="width:100%; height:50%;" sizing="contain" src="images/hp10.jpg"></iron-image>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<iron-image style="width:100%; height:50%;" sizing="contain" src="images/hp2.jpg"></iron-image> 
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<iron-image style="width:100%; height:50%;" sizing="contain" src="images/hp13.jpg"></iron-image>  
+				</div>
+				<div class="col-md-4 col-sm-6 hidden-xs">
+					<iron-image style="width:100%; height:50%;" sizing="contain" src="images/hp6.jpg"></iron-image>
+				</div>
+				<div class="col-md-4 col-sm-6 hidden-xs">
+					<iron-image style="width:100%; height:50%;" sizing="contain" src="images/hp9.jpg"></iron-image>  
+				</div>
+				<div class="col-md-4 col-sm-6 hidden-xs">
+					<iron-image style="width:100%; height:50%;" sizing="contain" src="images/hp12.jpg"></iron-image>  
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<h1 class="subtitle" id="review-title">Reseñas</h1>
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<review-element image-logo="images/empire.png" title="EMPIRE" image-stars="images/stars.png">"Now 13, Harry Potter and chums are back off to Hogwarts, only to find that a dangerous escaped prisoner..."</review-element>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<review-element image-logo="images/roger-ebert.png" title="ROGER EBERT" image-stars="images/stars.png">"In this adventure Harry will do battle with giant lizards, face the attack of the Death Eaters, and in perhaps the most difficult task..."</review-element>
+				</div>
+				<div class="col-md-3 col-sm-6 hidden-xs">
+					<review-element image-logo="images/commonsenses.png" title="COMMON SENSE" image-stars="images/stars.png">"J.K. Rowling has sidestepped the usual series-writer trap of sticking so closely to a successful formula that each book is just..."</review-element>
+				</div>
+				<div class="col-md-3 col-sm-6 hidden-xs">
+					<review-element image-logo="images/nytimes.png" title="NY TIMES" image-stars="images/stars.png">"Harry Potter and the Prisoner of Azkaban,'' by the Scottish writer J. K. Rowling, is the third in her projected series..."</review-element>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content-black">
+		<h1 class="subtitle">Comentarios</h1>
+		<div>
+			<comment-section></comment-section>
+		</div>
+	</div>
+
+</paper-scroll-header-panel>
+</body>
+
 </html>

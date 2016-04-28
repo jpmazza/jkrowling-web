@@ -1,0 +1,121 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../comment-element/comment-element.html">
+
+<dom-module id="comment-section">
+<style>
+  :host {
+    background-color: black;
+  }
+  paper-input {
+    width: 200px;
+    --paper-input-container-input-color: white;
+    --paper-input-container-color: #c8c8c8;
+    --paper-input-container-focus-color: #c8c8c8;
+  }
+  paper-button {
+    font-family: 'Roboto';
+  }
+  paper-textarea {
+    --paper-input-container-input-color: white;
+    --paper-input-container-color: #c8c8c8;
+    --paper-input-container-focus-color: #c8c8c8;
+  }
+  .custom-button {
+    background-color: white;
+    font-family: Montserrat;
+    color: black;
+    width: 150px;
+    height: 40px;
+  }
+  .input-text {
+    color: white;
+  }
+  .comment-input {
+    margin-left: 20px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+  .comment-heading {
+    font-weight: 300;
+    font-size: 1.6rem;
+    font-family: Roboto;
+    color: white;
+  }
+</style>
+
+<template>
+  <iron-ajax auto url="../comments.json" params="" handle-as="json" last-response="{{ _commentsArray }}" debounce-duration="300"></iron-ajax>
+  <template is="dom-repeat" items="[[ _commentsArray ]]">
+    <comment-element name="[[ item.user ]]" image="[[ item.image ]]" time="[[ item.DateTime ]]">[[ item.comment ]]</comment-element>
+  </template>
+  <div class="comment-input">
+    <h3 class="comment-heading">Ingrese un comentario</h3>
+    <paper-input class="input-text" label="Nombre" value="{{ _name }}" char-counter maxlength="20"></paper-input>
+    <paper-textarea label="Comentario" value="{{ _comment }}"></paper-textarea>
+    <paper-textarea class="input-text" label="Link de imágen" value="{{ _imgLink }}" style="padding-bottom: 20px"></paper-textarea>
+    <paper-button toggles raised id="btnAddComment" class="custom-button">Comentar</paper-button>
+  </div>
+</template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'comment-section',
+    properties: {
+      _commentsArray: {
+        type: Array,
+        value: function() {
+          return [];
+        }
+      },
+      _name: {
+        type: String
+      },
+      _comment: {
+        type: String
+      },
+      _imgLink: {
+        type: String
+      }
+    },
+
+    listeners: {
+      'btnAddComment.tap': '_addComment'
+    },
+
+    _addComment: function(e) {
+      this.push('_commentsArray', { user: this._name, comment: this._comment, DateTime: new Date().toLocaleString(), image: this._imgLink});
+      this._name = ""
+      this._comment = ""
+      this._imgLink = ""
+    },
+
+    // Element Lifecycle
+    ready: function() {
+      // `ready` is called after all elements have been configured, but
+      // propagates bottom-up. This element's children are ready, but parents
+      // are not.
+      //
+      // This is the point where you should make modifications to the DOM (when
+      // necessary), or kick off any processes the element wants to perform.
+    },
+    attached: function() {
+      // `attached` fires once the element and its parents have been inserted
+      // into a document.
+      //
+      // This is a good place to perform any work related to your element's
+      // visual state or active behavior (measuring sizes, beginning animations,
+      // loading resources, etc).
+    },
+    detached: function() {
+      // The analog to `attached`, `detached` fires when the element has been
+      // removed from a document.
+      //
+      // Use this to clean up anything you did in `attached`.
+    }
+  });
+</script>
