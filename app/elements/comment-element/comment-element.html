@@ -21,30 +21,48 @@
     iron-image {
       width: 4em;
       height: 4em;
-      border-radius: .2em;
     }
     #author-container {
       display: flex;
       align-items: center;
     }
-    #author-name {
-      font-size: small;
-      padding-left: 1em;
+    .author {
+      width: 100%;
+    }
+    .author h1 {
+      width: 100%;
+      text-align: center;
+      font-family: Montserrat;
+      font-weight: 900;
+      font-size: 2.1rem;
+    }    
+    .author p {
+      width: 100%;
     }
     #comment-body {
-      font-size: small;
+      font-family: Roboto;
       font-weight: 300;
-      margin: 1em 1em 1em 3.5em;
+      font-size: 2rem;
+      line-height: 1.8;
+      text-align: left;
+    }
+    @media (max-width: 480px) {
+      iron-image {
+        display: none;
+      }
+      .author p {
+        display: none;
+      }
     }
   </style>
 
 <template>
-    <iron-media-query query="[[ mediaQuery ]]" 
-                      query-matches="{{ tooSmall }}"></iron-media-query>
     <div id="author-container">
       <iron-image src="[[ image ]]" sizing="cover"></iron-image>
-      <span id="author-name">[[ name ]]</span>
-      <span> [[ time ]]</span>
+      <div class="author">
+      <h1>[[ name ]]</h1>
+      <p> [[ time ]]</p>
+      </div>
     </div>
     <p id="comment-body">
       <content></content>
@@ -67,23 +85,10 @@
       },
       time: {
         type: String,
-        value: '09/11/15 15:45'
-      },
-      mediaQuery: {
-        type: String,
-        value: function() {
-          return "(max-width: 320px)";
-        }
-      },
-      tooSmall: {
-        type: Boolean,
-        observer: '_tooSmallChanged'
+        value: '09/11/15 15:45:12'
       }
     },
 
-    _tooSmallChanged: function(newValue, oldValue) {
-      this.toggleClass('small', newValue);
-    },
 
     ready: function() {
     },
