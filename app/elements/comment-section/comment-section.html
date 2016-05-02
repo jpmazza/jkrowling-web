@@ -45,6 +45,14 @@
     font-family: Roboto;
     color: white;
   }
+  .centered-button {
+    width: 100%;
+  }
+  @media (max-width: 480px) {
+    .centered-button {
+      text-align: center;
+    }
+  }
 </style>
 
 <template>
@@ -57,7 +65,9 @@
     <paper-input class="input-text" label="Nombre" value="{{ _name }}" char-counter maxlength="20"></paper-input>
     <paper-textarea label="Comentario" value="{{ _comment }}"></paper-textarea>
     <paper-textarea class="input-text" label="Link de imágen" value="{{ _imgLink }}" style="padding-bottom: 20px"></paper-textarea>
-    <paper-button toggles raised id="btnAddComment" class="custom-button">Comentar</paper-button>
+    <div class="centered-button">
+      <paper-button toggles raised id="btnAddComment" class="custom-button">Comentar</paper-button>
+    </div>
   </div>
 </template>
 </dom-module>
